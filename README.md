@@ -151,7 +151,7 @@ $ git push -u origin main (master)
 
 graph LR;
  untracked -- "git add" --> staged+tracked;
-  staged    -- "git commit"     --> tracked/comitted;
+  staged+tracked    -- "git commit"     --> tracked/comitted;
   modified -- "git add" --> staged+tracked;
   staged+tracked -- "Изменения" --> modified;
   tracked -- "Изменения" --> modified
