@@ -123,4 +123,65 @@ $ git push -u origin main (master)
 ---
 ---
 
+
+# Статусы файлов в Git
+
+
+- **untracked** - неотслеживаемый
+
+
+- **staged** - подготовленный - после **git add**
+
+
+- **tracked** - отслеживаемый - после **git add** и **git commit**
+
+
+- **modified** - файл был закоммичен и после этого изменён
+
+---
+
+
+### Цикл жизни файла в Git
+
+
+
+``` mermaid
+
+%% Схема цикла жизни файла в Git
+
+graph LR;
+ untracked -- "git add" --> staged + tracked;
+  staged    -- "git commit"     --> tracked/comitted;
+  modified -- "git add" --> staged + tracked;
+  staged + tracked -- "Изменения" --> modified;
+  tracked -- "Изменения" --> modified
+
+```
+
+
+1. Файл только что создали. Git ещё не отслеживает содержимое этого файла. Состояние: **untracked**.
+
+
+2. Файл добавили в **staging area** с помощью **git add**. Состояние: **staged (+ tracked)**.
+     
+    
+3. Сделали коммит с помощью **git commit**. Состояние: **tracked**.
+
+
+4. Изменили файл. Состояние: **modified (+ tracked)**.
+
+
+5. Снова добавили в **staging area** с помощью **git add**. Состояния: **staged (+ tracked)**.
+
+
+6. Сделали коммит. Состояния: **tracked**.
+
+
+7. Повторили пункты 4−7 много-много раз.
+
+
+---
+---
+
+
 /
