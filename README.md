@@ -150,10 +150,10 @@ $ git push -u origin main (master)
 %% Схема цикла жизни файла в Git
 
 graph LR;
- untracked -- "git add" --> staged + tracked;
+ untracked -- "git add" --> staged+tracked;
   staged    -- "git commit"     --> tracked/comitted;
   modified -- "git add" --> staged + tracked;
-  staged + tracked -- "Изменения" --> modified;
+  staged+tracked -- "Изменения" --> modified;
   tracked -- "Изменения" --> modified
 
 ```
